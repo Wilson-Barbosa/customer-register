@@ -25,7 +25,7 @@
 
         <!-- FORM FOR REGISTRATION-->
         <section>
-            <form id="form-register">
+            <form id="form-register" onsubmit="saveCustomer(); return false;">
 
                 <!-- First and Last Name ROW -->
                 <div class="row">
@@ -41,9 +41,10 @@
 
                 <!-- CEP ROW -->
                 <div class="row">
-                    <div class="mb-3 col-3">
+                    <div class="mb-3 col-3" id="errorOnCep">
                         <label for="cep" class="form-label">Pesquise pelo CEP:</label>
                         <input type="text" class="form-control" id="cep" onblur="makeRequest()">
+                        <!-- errors are displayed here -->
                     </div>
                 </div>
 
@@ -54,8 +55,8 @@
                         <input type="text" class="form-control" id="address" disabled>
                     </div>
                     <div class="mb-3 col-2">
-                        <label for="houseNumber" class="form-label">Número:</label> 
-                        <input type="houseNumber" class="form-control" id="houseNumber" required >
+                        <label for="houseNumber" class="form-label">Número:</label>
+                        <input type="houseNumber" class="form-control" id="houseNumber" required disabled>
                     </div>
                 </div>
 
@@ -82,7 +83,7 @@
                 <!-- Button -->
                 <div class="row">
                     <div class="col-12 text-center">
-                        <button class="btn btn-primary" type="button" onclick="saveCustomer()">Salvar</button>
+                        <button type="submit" class="btn btn-primary">Salvar</button>
                     </div>
                 </div>
             </form>
@@ -104,17 +105,7 @@
                         <th scope="col">Estado</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">1</th>
-                        <td>Timóteo de Souza</td>
-                        <td>Rua das Magnólias, 182</td>
-                        <td>13380-600</td>
-                        <td>Jardim das Primaveras</td>
-                        <td>Nova Odessa</td>
-                        <td>SP</td>
-                    </tr>
-                </tbody>
+                <tbody> <!-- Registered customers go here --> </tbody>
             </table>
         </section>
 
@@ -126,19 +117,18 @@
 
     <!-- JQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    
+
     <!-- Mask -->
     <script src="/src/maskPlugin.js"></script>
-    
+
     <!-- My JavaScript -->
     <script src="/src/index.js"></script>
 
 
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous">
-    </script>
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous">
+        </script>
 </body>
 
 </html>
