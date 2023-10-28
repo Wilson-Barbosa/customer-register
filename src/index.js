@@ -1,5 +1,5 @@
 //adding a mask to the CEP input
-$('#cep').mask('00000-000');
+//$('#cep').mask('00000-000');
 
 
 
@@ -96,4 +96,20 @@ function saveCustomer(){
 
     //TODO remember to enable this after the testing is done
     //document.getElementById("form-register").reset();    
+}
+
+
+
+//resquet
+function makeRequest(){
+
+    const inputCep = document.getElementById("cep").value;
+    const url = `https://viacep.com.br/ws/${inputCep}/json/`;
+
+
+    $.getJSON(url, (response)=>
+    {
+        console.log(response);
+    }
+    )
 }

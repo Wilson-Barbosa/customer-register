@@ -43,7 +43,7 @@
                 <div class="row">
                     <div class="mb-3 col-3">
                         <label for="cep" class="form-label">Pesquise pelo CEP:</label>
-                        <input type="text" class="form-control" id="cep">
+                        <input type="text" class="form-control" id="cep" onblur="makeRequest()">
                     </div>
                 </div>
 
@@ -55,7 +55,7 @@
                     </div>
                     <div class="mb-3 col-2">
                         <label for="houseNumber" class="form-label">Número:</label> 
-                        <input type="houseNumber" class="form-control" id="houseNumber" required ><!-- TODO remember to go back to disable after testing-->
+                        <input type="houseNumber" class="form-control" id="houseNumber" required >
                     </div>
                 </div>
 
