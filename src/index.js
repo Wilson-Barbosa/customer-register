@@ -7,6 +7,8 @@ $('#cep').mask('00000-000');
 let customerStorage = [];
 
 
+//variable to check if the cep is valid
+let cepIsValid = false;
 
 
 //function that takes the customer's info from the the form
@@ -78,15 +80,20 @@ function showCustomerInfoOnScreen(customer) {
 that the CEP was valid, the request was successful and all inputs are validated */
 function saveCustomer() {
 
-    const customerData = takesCustomerInfoFromScreen();  //takes the valid information
+    if(cepIsValid === true){
+        const customerData = takesCustomerInfoFromScreen();  //takes the valid information
 
-    customerStorage.push(customerData);                  //pushes the data to customerStorage 
+        customerStorage.push(customerData);                  //pushes the data to customerStorage 
+    
+        showCustomerInfoOnScreen(customerData);              //send the data to the table
+    
+        document.getElementById("form-register").reset();    //resets the form
+    
+        disableHouseNumberInput();                           //disables the number input
+        
+        cepIsValid = false;
+    }
 
-    showCustomerInfoOnScreen(customerData);              //send the data to the table
-
-    document.getElementById("form-register").reset();    //resets the form
-
-    disableHouseNumberInput();                           //disables the number input  
 }
 
 
@@ -117,6 +124,7 @@ function makeRequest() {
             else {
                 enableHouseNumberInput();
                 fillBlankInputs(response);
+                cepIsValid = true;
             }
         }
             //if the CEP is invalid (bad request) this message is displayed
